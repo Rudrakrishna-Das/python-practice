@@ -1,0 +1,47 @@
+[
+    {
+        "id": "9c51cdaa-f64c-4246-8f78-9cd78167f31a",
+        "name": "EMP FTE",
+        "role": "Engineer",
+        "email": "empfte@gmail.com",
+        "annual_salary": "200000",
+        "type": "FullTimeEmployee",
+        "bonus": {
+            "('2025', '7')": 2000
+        },
+        "net_salary": {
+            "('2025', '7')": 10034.779999999999
+        },
+        "leave": {
+            "('2025', '7')": 5
+        }
+    },
+    {
+        "id": "75c04834-854b-46b8-ade5-0c5f28803dc1",
+        "name": "EMP C",
+        "role": "Designer",
+        "email": "empc@gmail.com",
+        "type": "Contractor",
+        "net_salary": {
+            "('2025', '7')": 8160.0,
+            "('2025', '8')": 10200
+        },
+        "pay_per_hour": 60,
+        "monthly_worked": {
+            "('2025', '7')": 160,
+            "('2025', '8')": 200
+        }
+    },
+    {
+        "id": "8dd0e809-520a-47ea-bbec-2367755f51bc",
+        "name": "EMP I",
+        "role": "Editor",
+        "email": "empi@gmail.com",
+        "type": "Intern",
+        "net_salary": {
+            "('2025', '7')": 5700,
+            "('2025', '8')": 6650
+        },
+        "stipend": 7000
+    }
+]

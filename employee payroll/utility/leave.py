@@ -2,24 +2,27 @@ from collections import defaultdict
 import calendar
 from datetime import date
 from storage.storage import Storage
+from helper.helper import Helper
 
 
 class Leave:
     def __init__(self):
         self.leave_record = defaultdict(lambda : defaultdict(lambda:{'unpaid':0}))
 
-    def add_leave(self,id,year,month,days,leave_type='unpaid'):
-        self.leave_record[id][(year,month)][leave_type] += days
-        data = Storage.find_employee(id)
+    def add_leave(self,year,month,days,emp,leave_type='unpaid'):
+        self.leave_record[emp.id][(year,month)][leave_type] += days
+       
+        data = Helper.find_employee(emp.email)
         if data is not None:
-            if str((year,month)) in data['data']['taken_leave']:
-                data['data']['taken_leave'][str((year,month))] += days
+            if str((year,month)) in data['data']['leave']:
+                data['data']['leave'][str((year,month))] += days
             else:
-                data['data']['taken_leave'][str((year,month))] = days
+                data['data']['leave'][str((year,month))] = days
             Storage.save_to_json(data['data'],data['index'])
     
-    def get_unpaid_leaves(self,id,year,month):
-        return self.leave_record[id][(year,month)]['unpaid'] or 0
+    def get_unpaid_leaves(self,year,month,emp):
+       
+        return self.leave_record[emp.id][(year,month)]['unpaid'] or 0
     
     def total_working_days(self,year,month):
         # Get total days of the month 

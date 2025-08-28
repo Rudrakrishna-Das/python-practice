@@ -9,4 +9,4 @@ class Tax:
 
     def calculate_tax (self,gross_salary,employee):
         tax_rate = self.rules.get(employee.__class__.__name__,.15) #This __class__.__name__ gives the name of the class
-        return tax_rate * gross_salary
+        return int(float(tax_rate) * float(gross_salary))
